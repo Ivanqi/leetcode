@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>经典的木桶问题，能盛水的多少取决于短边的高度</title>
+</head>
+<body>
+    <pre>
+        出处：LeetCode 算法第11题
+
+        给定 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。画 n 条垂直线，使得垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。
+
+        **注意：**你不能倾斜容器，n 至少是2。
+
+        Given n non-negative integers a1, a2, ..., an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.
+
+        Note: You may not slant the container and n is at least 2.
+    </pre>
+    <script>
+        /*
+            从数组两边向中间靠拢，记录每次计算的面积。当左边小于右边时，使左边向右边移动，因为此时右边不管怎么动，左边决定了面积的大小，除非右边移动后比左边还要小，但这是获取的面积只会更小。反之亦然，只需一次遍历，时间复杂度O(n)
+        */
+        var maxArea = function (height) {
+            var maxArea = 0;
+            var low = 0, high = height.length - 1;
+            while (low < high) {
+                maxArea = Math.max(maxArea, Math.min(height[low], height[high]) * (high - low));
+                if (height[low] < height[high]) {
+                    low++;
+                } else {
+                    high--;
+                }
+            }
+            return maxArea;
+        }
+
+        var testArr = [1,8,6,2,5,4,8,3,7];
+        var res = maxArea(testArr);
+        console.log(res);
+    </script>
+</body>
+</html>

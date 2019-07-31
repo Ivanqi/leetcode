@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>分类颜色</title>
+</head>
+<body>
+    <!--
+        进阶：
+            你能想出一个仅用常数空间的一趟扫描算法吗？
+        思路：
+            1. 定义3个变量指针，一个指向前面0之后的第一个1，一个指向后面2之前的第一个1，另一个进行遍历
+    -->
+    <script>
+        var sortColors = function (nums)　{
+            var length = nums.length;
+            if (length == 0) {
+                return nums;
+            }
+            var head = 0, cursor = 0, tail = length - 1;
+            while(cursor <= tail) {
+                if (nums[cursor] == 0) {
+                    var temp = nums[head];
+                    nums[head] = nums[cursor];
+                    nums[cursor] = temp;
+                    cursor++;
+                    head++;
+                } else if (nums[cursor] == 2) {
+                    var temp = nums[tail];
+                    nums[tail] = nums[cursor];
+                    nums[cursor] = temp;
+                    tail--;
+                } else {
+                    cursor++;
+                }
+            }
+            return nums;
+        }
+        var nums = [2,0,2,1,1,0];
+        console.log(sortColors(nums));
+    </script>
+</body>
+</html>

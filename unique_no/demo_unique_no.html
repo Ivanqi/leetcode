@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>不重复工牌</title>
+</head>
+<body>
+    <script>
+        /**
+         * 现在有数据A和数组B，数组A表示男生数组，每个男生元素都有姓名和工号，数组B表示女生数组，每个女生元素有姓名和工号，现在要求把两个数组合成一个按工号排序的升序数组，如果男生女生工号一样，则把女生工号加1，需求最后所得的数组不能有重复工号
+         * 
+         * 思路：
+         *  设置双指针，遍历两个数组，将每一项加入到新的数组中。设置一个count来记录重复的次数，使得后面的工牌号都向后偏移count个位置，防止重复
+        */
+
+        /**
+         * 
+         * @param {*} man {name: '', no: ''} 
+         * @param {*} woman {name: '', no: ''}
+         * @return []
+         */
+        function uniqueArray(man, woman) {
+            var man_length = man.length, woman_length = woman.length;
+            if (man_length === 0) {
+                return man;
+            }
+            if (woman_length === 0) {
+                return woman;
+            }
+
+            var i = 0, j = 0, count =0, result = [];
+
+            man.sort(function(prev, next) {
+                return prev.no - next.no;
+            });
+
+            woman.sort(function(prev, next){
+                return prev.no - next.no;
+            });
+
+            while (i < man_length && j < woman_length) {
+                if (man[i].no === woman[j].no) {
+                    man[i].no += count;
+                    woman[j].no += (1 + count);
+                    result.push(man[i]);
+                    result.push(woman[j]);
+                    i++;
+                    j++;
+                    count++;
+                } else if (man[i].no < woman[j].no) {
+                    man[i].no += count;
+                    result.push(man[i]);
+                    i++;
+                } else {
+                    woman[j].no += count;
+                    result.push(woman[j]);
+                    j++;
+                }
+            }
+
+            while(i < man_length) {
+                man[i].no += count;
+                result.push(man[i]);
+                i++;
+            }
+
+            while(j < woman_length) {
+                woman[j].no += count;
+                result.push(woman[j]);
+                j++;
+            }
+            return result;
+            console.log(result, i, j);
+        }
+
+        var man = [
+            {name: 'ivan_1', no: 1}, {name: 'ivan_2', no: 3}, {name: 'ivan_3', no: 7}, 
+            {name: 'ivan_4', no: 8}, {name: 'ivan_5', no: 10}, {name: 'ivan_6', no: 2},
+        ];
+
+        var woman = [
+            {name: 'amy_1', no: 9}, {name: 'amy_2', no: 3}, {name: 'amy_3', no: 5}, 
+            {name: 'amy_4', no: 4}, {name: 'amy_5', no: 10}, {name: 'amy_6', no: 1},
+        ];
+
+        console.log(uniqueArray(man, woman));
+    </script>
+</body>
+</html>

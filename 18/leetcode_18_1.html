@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>四数之和</title>
+</head>
+<body>
+    <pre>
+        出处：LeetCode 算法第18题
+
+        给定一个包含 n 个整数的数组 nums 和一个目标值 target，判断 nums 中是否存在四个元素 *a，*b，c 和 d ，使得 a + b + c + d 的值与 target 相等？找出所有满足条件且不重复的四元组。
+
+        注意：
+
+            答案中不可以包含重复的四元组。
+
+        示例：
+
+            给定数组 nums = [1, 0, -1, 0, -2, 2]，和 target = 0。
+
+        满足要求的四元组集合为：
+            [
+                [-1,  0, 0, 1],
+                [-2, -1, 1, 2],
+                [-2,  0, 0, 2]
+            ]
+
+        思路
+            先对数组进行排序，随机取两个数，对于剩下的数，使用两个指针分别从头部以及尾部进行扫描，计算符合要求的答案。改算法可以将时间复杂度保证在O(n^2)
+    </pre>
+    <script>
+        var fourSum = function(nums, target) {
+            var tempresult = [];
+            var exist = [];
+            var sortNums = nums.sort(function(a, b) { return a - b});
+            var length = nums.length;
+            for (var i = 0; i < length - 1 - 2; i++) {
+                for (var j = i + 1; j < length - 1 - 1; j++) {
+                    var number1 = sortNums[i];
+                    var number2 = sortNums[j];
+                    var low = j + 1;
+                    var high = length - 1;
+                    while (low < high) {
+                        if ((number1 + number2 + sortNums[low] + sortNums[high]) === target) {
+                            if (exist.indexOf([number1, number2, sortNums[low], sortNums[high]].join(',')) < 0) {
+                                tempresult.push([number1, number2, sortNums[low], sortNums[high]]);
+                                exist.push([number1, number2, sortNums[low], sortNums[high]].join(','));
+                            }
+                        }
+
+                        if ((number1 + number2 + sortNums[low] + sortNums[high]) < target) {
+                            low++;
+                        } else {
+                            high--;
+                        }
+                    }
+                }
+            }
+            return tempresult;
+        };
+
+        // [-2, -1, 0, 0 ,1, 2]
+        var checkArr = [1, 0, -1, 0, -2, 2];
+        var target = 0;
+        console.log(fourSum(checkArr, target));
+    </script>
+</body>
+</html>

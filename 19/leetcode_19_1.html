@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>letcode 19 - 给定一个链表，删除链表的倒数第 *n *个节点，并且返回链表的头结点</title>
+</head>
+<body>
+    <script>
+        /**
+        * Definition for singly-linked list.
+        * function ListNode(val) {
+        *     this.val = val;
+        *     this.next = null;
+        * }
+        */
+        /**
+        * @param {ListNode} head
+        * @param {number} n
+        * @return {ListNode}
+        */
+        
+        /**
+            1. 给定一个链表 : 1->2->3->4->5 和 n = 2
+            2. 当删除了倒数第二个节点，链表变为： 1->2->3->5
+
+            由于只能实现一边扫描，所以我们可以使用两个指针。让一个指针先走一定步数，使两个指针之间间隔n步，当前面的指针移动到链表尾部的时候
+            后面的指针刚好处于要删除的节点的前面，将它的next指向next.next就可以了
+            为了处理删除第一个节点的情况，我们在链表头部新建一个节点，使其指向第一个节点    
+        */
+        var removeNthFromEnd = function(head, n) {
+            var result = new ListNode(0);
+            result.next = head;
+            var second = result;
+            while(n > 1) {
+                head = head.next;
+                n--;
+            }
+            while(head.next != null) {
+                head = head.next;
+                second = second.next;
+            }
+            second.next = second.next.next;
+            return result.next;
+        };
+    </script>
+</body>
+</html>
