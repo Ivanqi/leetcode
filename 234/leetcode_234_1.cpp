@@ -174,7 +174,7 @@ void test_2() {
     }
     l.print();
 
-    if (l.isPalindrome2()) {
+    if (l.isPalindrome()) {
         cout << "是回文字符串" << endl;
     } else {
         cout << "不是回文字符串" << endl;
