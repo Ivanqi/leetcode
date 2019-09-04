@@ -1,26 +1,27 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
+#include <string>
+#include<stack>
+using namespace std;
 
-#define bool int
-#define true 1
-#define false 0
 
-bool isValid(char *s) {
-    if (s == NULL || s[0] == '\0') return true;
-    char stack[10240]; 
-    int top = 0;
+bool isValid(string s) {
+    stack<char> st;
     int i;
-    for (i = 0; s[i]; ++i) {
-        if (s[i] == '(' || s[i] == '[' || s[i] == '{') stack[top++] = s[i];
-        else {
-            if ((--top) < 0) return false;
-            if (s[i] == ')' && stack[top] != '(') return false;
-            if (s[i] == ']' && stack[top] != '[') return false;
-            if (s[i] == '}' && stack[top] != '{') return false;
+    for (i = 0; i < s.size(); i++) {
+        if (st.empty() && (s[i] == ')' || s[i] == '}' || s[i] == ']')) return false;
+        if (s[i] == ')' || s[i] == '}' || s[i] == ']') {
+            if (s[i] - st.top() == 1 || s[i] - st.top() == 2) {
+                st.pop();
+            } else {
+                return false;
+            }
+        } else {
+            st.push(s[i]);
         }
     }
-    return (top ? false : true);
+    return st.empty();
 }
+
 
 bool test_str1() {
     char str[] = "()";
@@ -61,15 +62,15 @@ bool test_str8() {
     char str[] = ")))))";
     return isValid(str);
 }
-
 int main () {
+
     bool res;
     res = test_str8();
 
     if (res) {
-        printf("成功\n");
+        cout << "成功" << endl;
     } else {
-        printf("失败\n");
+        cout << "失败" << endl;
     }
     return 0;
 }
