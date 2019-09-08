@@ -10,7 +10,7 @@ class Solution {
         stack<int> num;
         stack<char> op;
         int pri(char a){
-            switch(a){
+            switch (a) {
                 case '+': return 1;
                 case '-': return 1;
                 case '*': return 2;
@@ -22,11 +22,11 @@ class Solution {
         void cal(){
             int b = num.top(); num.pop();
             int a = num.top(); num.pop();
-            switch(op.top()){
-                case '+': num.push(a+b); break;
-                case '-': num.push(a-b); break;
-                case '*': num.push(a*b); break;
-                case '/': num.push(a/b); break;
+            switch (op.top()) {
+                case '+': num.push(a + b); break;
+                case '-': num.push(a - b); break;
+                case '*': num.push(a * b); break;
+                case '/': num.push(a / b); break;
             }
             op.pop();
         }
@@ -35,41 +35,61 @@ class Solution {
             string ss;
             for (int i = 0; i < (int)s.size(); i++) {
                 if (isdigit(s[i])) {
-                    ss+=s[i];
+                    ss += s[i];
                 }
-                else if(s[i]==' ') continue;
-                else{
-                    if(!ss.empty()) {
+                else if(s[i] == ' ') continue;
+                else {
+                    if (!ss.empty()) {
                         num.push(stoi(ss));
                         ss.clear();
                     }
+
                     if (op.empty() || s[i] == '(' || pri(op.top()) < pri(s[i])) {
                         op.push(s[i]);
-                    } else if(s[i] == ')') {
-                        while(op.top() != '(') {
+                    } else if (s[i] == ')') {
+                        while (op.top() != '(') {
                             cal();
-                        } 
+                        }
                         op.pop();
                     } else {
                         while (!op.empty() && pri(op.top()) <= pri(s[i])) {
-                            cal()
+                            cal();
                         };
                         op.push(s[i]);
                     }
                 }
             }
             if (!ss.empty()) num.push(stoi(ss));
-            while(!op.empty()) cal();
+            while (!op.empty()) {
+                cal();
+            }
             return num.top();
         }
 };
+
+void test_case_1(Solution So)
+{
+    char str[] = "1 + 2 * 2";
+    cout << "计算结果：" << So.calculate(str) << endl;
+}
+
+void test_case_2(Solution So)
+{
+    char str[] = "1 + ((2 + 4) / 2) + 4 * 5";
+    cout << "计算结果：" << So.calculate(str) << endl;
+}
 
 void test_case_3(Solution So) {
     char str[] = "(1+(4+5+2)-3)+(6+8)";
     cout << "计算结果：" << So.calculate(str) << endl;
 }
 
+void test_case_4(Solution So) {
+    char str[] = "(1+(2+(3+(4+5)))";
+    cout << "计算结果：" << So.calculate(str) << endl;
+} 
+
 int main () {
     Solution So;
-    test_case_3(So);
+    test_case_2(So);
 }
