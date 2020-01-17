@@ -3,52 +3,43 @@
 #include <algorithm>
 using namespace std;
 
-class Trie {
-    private:
-        bool is_string = false;
-        Trie* next[26] = {nullptr};
-    public:
-        Trie(){}
-        void insert(string& word) {
-            Trie* root = this;
-            for (const auto& w:word) {
-                if (root->next[w - 'a'] == nullptr) root->next[w - 'a'] = new Trie();
-                root = root->next[w - 'a'];
-            }
-            root->is_string = true;
-        }
-
-        bool startsWith(string& word) {
-            Trie* root = this;
-            for (int i = word.size() - 1; i >= 0; --i) {
-                cout << word[i] << endl;
-                if (root->next[word[i] - 'a'] != nullptr) {
-                    root = root->next[word[i] - 'a'];
-                    if (root->is_string) return true;
-                }
-                else return false;
-            }
-            return false;
-        }
-};
-
 class StreamChecker {
-    private:
-        Trie* root;
-        string word;
     public:
+        struct TrieNode {
+            bool flag;
+            TrieNode* next[26] = {nullptr};
+            TrieNode(): flag(false){}
+        };
+        TrieNode* root;
+        string s;
         StreamChecker(vector<string>& words) {
-            root = new Trie();
-            for (auto word:words) {
-                reverse(word.begin(), word.end());
-                root->insert(word);
+            root = new TrieNode();
+            for (const auto& w: words) {
+                auto node = root;
+                for (int i = w.size() - 1; i >= 0; i--) {
+                    int k = w[i] - 'a';
+                    if (node->next[k] == NULL) {
+                        node->next[k] = new TrieNode();
+                    }
+                    node = node->next[k];
+                }
+                node->flag = true;
             }
         }
 
         bool query(char letter) {
-            Trie* note = root;
-            word.push_back(letter);
-            return note->startsWith(word);
+            s += letter;
+            auto node = root;
+            for (int i = s.size() - 1; i >= 0; --i) {
+                int k = s[i] - 'a';
+                if (node->next[k] != NULL) {
+                    node = node->next[k];
+                    if (node->flag) return true;
+                } else {
+                    return false;
+                }
+            }
+            return false;
         }
 };
 
@@ -57,7 +48,6 @@ int main() {
     v.push_back("cd");
     v.push_back("f");
     v.push_back("kl");
-
     StreamChecker *streamChecker = new StreamChecker(v);
 
     cout << streamChecker->query('a') << endl;
