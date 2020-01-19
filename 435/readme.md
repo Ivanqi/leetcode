@@ -21,7 +21,7 @@
     输入: [ [1,2], [2,3] ]
     输出: 0
     ```
-
+- 贪心算法，按照起点排序：选择结尾最短的，后面才可能连接更多区间(如果两个区间有重叠，应该保留结尾小的)。把问题转化为最多保留多少个区间，使他们互不重复，则按照终点排序，每个区间的结尾很重要，结尾越小，则后面越有可能容纳更多的区间
 #### 参考资料
 - [贪心算法之区间调度问题](https://leetcode-cn.com/problems/non-overlapping-intervals/solution/tan-xin-suan-fa-zhi-qu-jian-diao-du-wen-ti-by-labu/)
 - [无重叠区间](https://leetcode-cn.com/problems/non-overlapping-intervals/solution/wu-zhong-die-qu-jian-by-leetcode/)
