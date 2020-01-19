@@ -21,3 +21,7 @@
     输入: [ [1,2], [2,3] ]
     输出: 0
     ```
+
+#### 参考资料
+- [贪心算法之区间调度问题](https://leetcode-cn.com/problems/non-overlapping-intervals/solution/tan-xin-suan-fa-zhi-qu-jian-diao-du-wen-ti-by-labu/)
+- [无重叠区间](https://leetcode-cn.com/problems/non-overlapping-intervals/solution/wu-zhong-die-qu-jian-by-leetcode/)
