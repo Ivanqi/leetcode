@@ -36,3 +36,6 @@
 输入: "{[]}"
 输出: true
 ```
+
+#### 参考资料
+- [记一次手撕算法面试：字节跳动的面试官把我四连击了](https://mp.weixin.qq.com/s/Dg0cxqI7lx7YLI3AUZnxhA)
