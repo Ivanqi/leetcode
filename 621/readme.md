@@ -28,3 +28,6 @@
   - 公式算出的值可能会比数组长度小
     - 如  [“A”,“A”,“B”,“B”]，n = 0
     - 此时要取数组的长度
+
+#### 参考资料
+- [任务调度器](https://leetcode-cn.com/problems/task-scheduler/solution/ren-wu-diao-du-qi-by-leetcode/)
