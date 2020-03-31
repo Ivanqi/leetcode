@@ -49,3 +49,4 @@
 
 #### 参考资料
 - [简单想法，最优思路：就按照从左往右、从上往下的顺序遍历一次board，完成3个条件的检验](https://leetcode-cn.com/problems/valid-sudoku/solution/36-jiu-an-zhao-cong-zuo-wang-you-cong-shang-wang-x/)
+- [Java - 位运算详解(秒懂坐标变换与位运算，不使用数据结构击败98.29%)](https://leetcode-cn.com/problems/valid-sudoku/solution/java-wei-yun-suan-xiang-jie-miao-dong-zuo-biao-bia/)
