@@ -14,6 +14,9 @@ class Solution {
             return ret;
         }
 
+        // 路径：记录在nums中
+        // 选择列表: 
+        // 结束条件：nums中查找到数量满足m
         void perm(vector<int>& nums, int k, int m) {
             
             if (k == m) {
@@ -24,8 +27,11 @@ class Solution {
                 ret.push_back(nums);
             } else {
                 for (int i = k; i <= m; i++) {
+                    // 做选择
                     swap(nums[i], nums[k]);
+                    // 进入下一层决策树
                     perm(nums, k + 1, m);
+                    // 取消选择
                     swap(nums[i], nums[k]);
                 }
             }

@@ -13,3 +13,6 @@
   [3,2,1]
 ]
 ```
+
+#### 参考资料
+- [回溯算法详解](https://leetcode-cn.com/problems/n-queens/solution/hui-su-suan-fa-xiang-jie-by-labuladong/)
