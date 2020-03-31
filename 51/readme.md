@@ -20,3 +20,5 @@
     ]
     解释: 4 皇后问题存在两个不同的解法。
     ```
+#### 参考资料
+- [回溯算法详解](https://leetcode-cn.com/problems/n-queens/solution/hui-su-suan-fa-xiang-jie-by-labuladong/)
