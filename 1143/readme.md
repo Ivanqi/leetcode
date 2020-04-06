@@ -25,3 +25,6 @@
   - 1 <= text1.length <= 1000
   - 1 <= text2.length <= 1000
   - 输入的字符串只含有小写英文字符
+
+#### 参考资料
+- [动态规划之最长公共子序列（LCS）](https://leetcode-cn.com/problems/longest-common-subsequence/solution/dong-tai-gui-hua-zhi-zui-chang-gong-gong-zi-xu-lie/)
