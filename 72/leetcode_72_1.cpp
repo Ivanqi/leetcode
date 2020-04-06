@@ -64,8 +64,8 @@ class Solution {
 };
 
 void test_case_1(Solution So) {
-    string word1 = "mitcmu";
-    string word2 = "mtacnu";
+    string word1 = "horse";
+    string word2 = "ros";
     int ret = So.minDistance(word1, word2);
     cout << "结果为:" << ret << endl;
 }

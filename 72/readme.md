@@ -24,3 +24,16 @@
     exention -> exection (将 'n' 替换为 'c')
     exection -> execution (插入 'u')
     ```
+#### 插入字符，删除字符，替换字符流程
+- 插入字符串
+  - A = doge , B = dog. 要让 A == B
+  - 在B后插入 `e`, B = doge. A == B
+- 删除字符
+  - A = doge, B = dog. 所以 A == B
+  - 删除 A 后面的`e`, A = dog。 所以 A == B
+- 替换字符
+  - A = bat, B = cat。 要让 A == B
+  - A 替换 `b` 为 `c` 或者 B 替换 `c` 为 `b`
+
+#### 参考资料
+- [编辑距离](https://leetcode-cn.com/problems/edit-distance/solution/bian-ji-ju-chi-by-leetcode-solution/)
