@@ -15,11 +15,14 @@
 - 说明:
 - 你可以认为每种硬币的数量是无限的。
 
-##### 状态转移方程
+#### 状态转移方程
 ![avatar](images/../../images/322_1.png)
 
-##### 递归树
+#### 递归树
 ![avatar](images/../../images/322_2.png)
 
-##### 动态规划列表值
+#### 动态规划列表值
 ![avatar](images/../../images/322_3.png)
+
+#### 参考资料
+- [动态规划套路详解](https://leetcode-cn.com/problems/coin-change/solution/dong-tai-gui-hua-tao-lu-xiang-jie-by-wei-lai-bu-ke/)

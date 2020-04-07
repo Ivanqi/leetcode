@@ -28,3 +28,4 @@
 
 #### 参考资料
 - [动态规划之最长公共子序列（LCS）](https://leetcode-cn.com/problems/longest-common-subsequence/solution/dong-tai-gui-hua-zhi-zui-chang-gong-gong-zi-xu-lie/)
+- [1143. 最长公共子序列(一维数组，压缩空间，多解法)](https://leetcode-cn.com/problems/longest-common-subsequence/solution/a-fei-xue-suan-fa-zhi-by-a-fei-8/)
