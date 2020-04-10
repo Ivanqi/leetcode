@@ -27,6 +27,17 @@
 #### leetcode_122_1.cpp 回溯图
 - ![avatar](images/../../images/122_1.png)
 
+#### leetcode_122_4.cpp 部分回溯图
+- ![avatar](images/../../images/122_2.png)
+- 三种状态 : 不操作，买入， 卖出
+- 不操作的原因：可能当前买入/卖出，都不能获得最大利益。需要往后看看
+- 卖出了，下一个交易动作是不操作（等待时机）,或直接买入
+- 买入了，下一个交易动作是不操作(等待时机)，或直接卖出
+
+#### leetcode_122_5.cpp 及 leetcode_122_6.cpp 状态转移图
+- ![avatar](images/../../images/122_3.png)
+
 #### 参考资料
 - [买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/solution/mai-mai-gu-piao-de-zui-jia-shi-ji-ii-by-leetcode/)
 - [买卖股票的最佳时机 II （贪心，清晰图解）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/solution/best-time-to-buy-and-sell-stock-ii-zhuan-hua-fa-ji/)
+- [暴力搜索、贪心算法、动态规划](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/solution/tan-xin-suan-fa-by-liweiwei1419-2/)
