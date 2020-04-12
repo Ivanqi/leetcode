@@ -16,7 +16,7 @@
 
 #### 回溯图
 - 以leetcode_300_1.cpp 为例子
-- 
+- ![avatar](images/../../images/300_1.png)
 
 #### 参考资料
 - [动态规划 、优化（以贪心和二分作为子过程）](https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/dong-tai-gui-hua-er-fen-cha-zhao-tan-xin-suan-fa-p/)
