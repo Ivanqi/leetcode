@@ -18,3 +18,7 @@
 #### 回溯图
 - 以 leetcode_120_1.cpp 为例子
 - ![avatar](images/../../images/120_2.png)
+
+
+#### 参考资料
+- [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/solution/120-san-jiao-xing-zui-xiao-lu-jing-he-by-alexer-66/)
