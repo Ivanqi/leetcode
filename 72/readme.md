@@ -29,7 +29,7 @@
   - A = doge , B = dog. 要让 A == B
   - 在B后插入 `e`, B = doge. A == B
 - 删除字符
-  - A = doge, B = dog. 所以 A == B
+  - A = doge, B = dog. 要让 A == B
   - 删除 A 后面的`e`, A = dog。 所以 A == B
 - 替换字符
   - A = bat, B = cat。 要让 A == B

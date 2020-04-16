@@ -28,6 +28,12 @@ void test_case_1(Solution So) {
     vector<string> strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
 
     vector<vector<string>> ret = So.groupAnagrams(strs);
+    for (auto r:ret) {
+        for (auto val:r) {
+            cout << val << " ";
+        }
+        cout << endl;
+    }
 }
 int main() {
     Solution So;
