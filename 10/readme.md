@@ -47,3 +47,5 @@
     p = "mis*is*p*."
     输出: false
     ```
+#### 参考资料
+- [详细讲解，由浅入深](https://leetcode-cn.com/problems/regular-expression-matching/solution/ji-yu-guan-fang-ti-jie-gen-xiang-xi-de-jiang-jie-b/)
