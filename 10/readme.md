@@ -49,3 +49,4 @@
     ```
 #### 参考资料
 - [详细讲解，由浅入深](https://leetcode-cn.com/problems/regular-expression-matching/solution/ji-yu-guan-fang-ti-jie-gen-xiang-xi-de-jiang-jie-b/)
+- [动态规划 - 从 0 讲解，大白话好理解](https://leetcode-cn.com/problems/regular-expression-matching/solution/dong-tai-gui-hua-zen-yao-cong-0kai-shi-si-kao-da-b/)
