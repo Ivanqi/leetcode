@@ -14,3 +14,6 @@
   - 树中的节点数介于 1 和 100 之间。
   - 每个节点的值介于 0 和 100 之间。
   - 给定的树为二叉搜索树。
+
+#### 参考资料
+- [一套拳法👊刷掉n个遍历树的问题](https://leetcode-cn.com/problems/convert-bst-to-greater-tree/solution/yi-tao-quan-fa-shua-diao-nge-bian-li-shu-de-wen-5/)
