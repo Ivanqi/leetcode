@@ -25,10 +25,10 @@ struct TreeNode {
 class Solution {
     public:
         int ans;
-        int bfs(TreeNode *root) {
+        int dfs(TreeNode *root) {
             if (root == NULL) return 0;
-            int L = bfs(root->left);
-            int R = bfs(root->right);
+            int L = dfs(root->left);
+            int R = dfs(root->right);
             ans = max(ans, L + R);
             return max(L, R) + 1;
 
@@ -36,7 +36,7 @@ class Solution {
 
         int diameterOfBinaryTree(TreeNode* root) {
             ans = 0;
-            bfs(root);
+            dfs(root);
             return ans;
         }
 
