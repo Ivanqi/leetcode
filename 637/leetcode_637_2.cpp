@@ -25,32 +25,39 @@ struct TreeNode {
 
 class Solution {
     public:
-        vector<double> averageOfLevels(TreeNode* root) {
-            queue<TreeNode*> Q;
-            vector<double> ans;
+        // 统计每层的节点数，和节点值总和 dfs深度优先，先序遍历，一边遍历一边保存
+        void dfs(TreeNode *root, int rank, vector<double>& sum, vector<double>& count) {
+            if (root == NULL) return;
 
-            Q.push(root);
-
-            while (!Q.empty()) {
-                int count = Q.size();
-                double sum = 0.0;
-                for (int i = 0; i < count; i++) {
-                    TreeNode *cur = Q.front();Q.pop();
-                    sum += cur->val;
-                    if (cur->left != NULL) {
-                        Q.push(cur->left);
-                    }
-
-                    if (cur->right != NULL) {
-                        Q.push(cur->right);
-                    }
-                }
-                ans.push_back(sum / count);
-            }
-
-            return ans;
+            sum[rank] += root->val;
+            count[rank] += 1;
+            dfs(root->left, rank + 1, sum, count);
+            dfs(root->right, rank + 1, sum, count);
         }
 
+        int maxHeight(TreeNode *root) {
+            if (root == NULL) return 0;
+
+            return max(maxHeight(root->left), maxHeight(root->right)) + 1;
+        }
+
+        vector<double> averageOfLevels(TreeNode* root) {
+            if (root == NULL) return {};
+
+            int height = maxHeight(root);
+            vector<double> sum(height, 0);
+            vector<double> count(height, 0);
+            vector<double> res;
+
+            dfs(root, 0, sum, count);
+
+            for(int i = 0;i < height; i++) {
+                res.push_back(sum[i] / count[i]);
+            }
+            return res;
+        }
+
+        
         void insert(TreeNode* &root, vector<int>& v) {
             
             int maxNum = v.size();
