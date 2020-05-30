@@ -13,3 +13,4 @@
 
 #### 参考资料
 - [暴力+优先队列(小顶堆)+动态规划(三指针)](https://leetcode-cn.com/problems/ugly-number-ii/solution/bao-li-you-xian-dui-lie-xiao-ding-dui-dong-tai-gui/)
+- [详细通俗的思路分析，多解法](https://leetcode-cn.com/problems/ugly-number-ii/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-5-9/)
