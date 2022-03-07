@@ -15,5 +15,6 @@
 - 说明:
   - 所有输入只包含小写字母 a-z 。
 
+
 #### 参考资料
 - [最长公共前缀](https://leetcode-cn.com/problems/longest-common-prefix/solution/zui-chang-gong-gong-qian-zhui-by-leetcode/)
