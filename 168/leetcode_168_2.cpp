@@ -9,7 +9,7 @@ class Solution {
 
         /**
          * @brief 从轮数和下标数入手
-         *  1. 通过 columnNumber 得到多少轮
+         *  1. 通过 columnNumber / 26 得到多少轮
          *  2. 然后 columnNumber % 26 得到每轮的下标数
          *  3. 然后需要逆转字符串
          *  4. 但是没有通过校验
