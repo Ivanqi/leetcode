@@ -4,24 +4,24 @@
 using namespace std;
 
 class Solution {
-public:
-    int missingNumber(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
+    public:
+        int missingNumber(vector<int>& nums) {
+            sort(nums.begin(), nums.end());
 
-        int i = 0;
-        int len = nums.size();
+            int i = 0;
+            int len = nums.size();
 
-        int ret = 0;
+            int ret = 0;
 
-        while (i < len) {
-            if (nums[i] != i) {
-                return i;
+            while (i < len) {
+                if (nums[i] != i) {
+                    return i;
+                }
+                i++;
             }
-            i++;
-        }
 
-        return len;
-    }
+            return len;
+        }
 };
 
 void test_case_1(Solution So) {
